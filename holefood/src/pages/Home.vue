@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import Stores from '../components/Stores.vue'
 
+import Stores from '../components/Stores.vue'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -20,9 +21,14 @@ export default {
   }),
   mounted() {
     //somefunction to call all the stores.
+    this.getStores()
   },
   methods: {
     //axios call & define stores
+    async getStores(){
+      const res = await axios.get('http://127.0.0.1:8000/shops/')
+      this.stores = res.data
+    },
     //add adding store function
     selectStore(storeId) {
       this.$router.push(`/storeDetails/${storeId}`)
