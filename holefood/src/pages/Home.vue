@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>HoleFoods</h1>
+    <!-- <h1 class="home-title">HoleFoods</h1> -->
     <Stores v-for="store in stores" :key="store.id" 
     :store="store" @selectStore="selectStore" />
     <button>Add Store</button>
