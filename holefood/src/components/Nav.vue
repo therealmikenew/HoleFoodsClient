@@ -1,9 +1,10 @@
 <template>
-  <nav>
-    <router-link to= "/">Home</router-link>
-    <router-link to= "/storeDetails">Stores</router-link>
-    <router-link to= "/donutDetails">Donuts</router-link>
+  <nav class="top-nav">
+    <router-link class="rout-link" to= "/">Home</router-link>
+    <router-link class="rout-link" to= "/storeDetails">Stores</router-link>
+    <router-link class="rout-link" to= "/donutDetails">Donuts</router-link>
   </nav>
+  
 </template>
 
 <script>

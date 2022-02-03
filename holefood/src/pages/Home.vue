@@ -1,34 +1,60 @@
 <template>
   <div>
-    <h1>HoleFoods</h1>
-    <Stores v-for="store in stores" :key="store.id" 
-    :store="store" @selectStore="selectStore" />
-    <button>Add Store</button>
+    <div v-if="!form">
+      <Stores v-for="store in stores" :key="store.id" 
+      :store="store" @selectStore="selectStore" />
+      <button>Add Store</button>
+    </div>
+    <div v-else >
+      <Form :form="form"  :name="name" :location="location" 
+      :photo_url="photo_url" @handleFormChange="handleFormChange" 
+      @handleSubmit="handleSubmit" />
+    </div>
   </div>
 </template>
 
 <script>
+
 import Stores from '../components/Stores.vue'
 import axios from 'axios'
-
+import Form from '../components/Form.vue'
 export default {
   name: 'Home',
   components: {
-    Stores
+    Stores,
+    Form
   },
   data: () => ({
-    stores: []
+    stores: [],
+    form: true,
+    name: '',
+    location: '',
+    photo_url: ''
   }),
   mounted() {
     this.getStores()
   },
   methods: {
+    handleFormChange(e) {
+      // this[e.target.name] = e.target.value
+      console.log(e)
+    },
+    handleSubmit(e) {
+      e.preventDefault()
+      alert('form submitted')
+      this.name=''
+      this.location=''
+      this.photo_url=''
+    },
+    async createStore() {
+      const res = await axios.post('http://localhost:8000/shops/')
+      this.newStore = res
+      //make sure to make the right axios call
+    },
     async getStores(){
       const res = await axios.get('http://localhost:8000/shops/')
       this.stores = res.data
     },
-    //axios call & define stores
-    //add adding store function
     selectStore(storeId) {
       this.$router.push(`/storeDetails/${storeId}`)
     }
