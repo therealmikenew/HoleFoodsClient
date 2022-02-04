@@ -40,11 +40,9 @@ export default {
     },
     
     handleSubmit() {
-     
+
       alert('form submitted')
-      // this.name=''
-      // this.location=''
-      // this.photo_url=''
+     
       this.createStore()
     },
     async createStore() {
@@ -55,8 +53,7 @@ export default {
         photo_url: this.photo_url
       })
       console.log(res)
-      //this.newStore = res
-      //make sure to make the right axios call
+      
     },
     async getStores(){
       const res = await axios.get('http://localhost:8000/shops/')
