@@ -29,6 +29,7 @@
 
 <script>
 export default {
+  name: 'Form',
   props: {
     form: Boolean,
     name: String,

@@ -21,8 +21,7 @@ import Form from '../components/Form.vue'
 export default {
   name: 'Home',
   components: {
-    Stores,
-    Form
+    Stores, Form
   },
   data: () => ({
     stores: [],
@@ -35,20 +34,23 @@ export default {
     this.getStores()
   },
   methods: {
-    handleFormChange(e) {
-      // this[e.target.name] = e.target.value
-      console.log(e)
+    handleFormChange(name, value) {
+      this[name] = value
     },
-    handleSubmit(e) {
-      e.preventDefault()
+    
+    handleSubmit() {
       alert('form submitted')
       this.name=''
       this.location=''
       this.photo_url=''
     },
     async createStore() {
-      const res = await axios.post('http://localhost:8000/shops/')
-      this.newStore = res
+      await axios.post('http://localhost:8000/shops/', {
+        name: this.name,
+        location: this.location,
+        photo_url: this.photo_url
+      })
+      //this.newStore = res
       //make sure to make the right axios call
     },
     async getStores(){
