@@ -1,6 +1,7 @@
 <template>
   <div>
     {{this.store.name}}
+    
     <Donuts v-for="donut in donuts" :key="donut.id"
     :donut="donut" />
   </div>

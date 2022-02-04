@@ -2,14 +2,17 @@
   <div>
     <h1>{{donut.name}}</h1>
     <h1>{{donut.details}}</h1>
-    <h1>{{donut.image_url}}</h1>
-    <button>Delete Donuts</button>
-    <button>Update Donuts</button>
+   
+
+     <img class="photo-url" :src="donut.image_url" />
+    <button v-on:click='deleteDonut'>Delete Donut</button>
+    <button>Update Donut</button>
     <button>Add Donuts</button>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'Donuts',
@@ -18,6 +21,15 @@ export default {
   },
   methods: {
     //add function to delete and update and add donuts
+
+    async deleteDonut() {
+    
+      await axios.delete(`http://127.0.0.1:8000/donuts/${this.donut.id}`)
+      this.$router.push('/')
+      
+    },
+
+
   }
 }
 </script>
