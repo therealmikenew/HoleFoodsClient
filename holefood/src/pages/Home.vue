@@ -65,12 +65,12 @@ export default {
     },
     async createStore() {
     
-      const res = await axios.post('http://localhost:8000/shops/', {
+    await axios.post('http://localhost:8000/shops/', {
         name: this.name,
         location: this.location,
         photo_url: this.photo_url
       })
-      console.log(res)
+      window.location.reload()
       
     },
     async getStores(){

@@ -7,13 +7,11 @@ import StoreDetails from "./pages/StoreDetails";
 
 const routes = [
   { path: "/", component: Home, name: "Home" },
-  { path: "/storeDetails", component: StoreDetails, name: "StoreDetails" },
   {
     path: "/storeDetails/:store_id",
     component: StoreDetails,
     name: "StoreDetails",
   },
-  // { path: '/donutDetails/:donut_id', component: Donuts, name: 'Donuts' }
 ];
 
 export default new VueRouter({ routes, mode: "history" });

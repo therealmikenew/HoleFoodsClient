@@ -36,7 +36,7 @@ export default {
     async getDonut(){
       const res = await axios.get('http://localhost:8000/donuts/')
       this.donuts = res.data
-      console.log(res.data)
+      
     },
   }
 }
