@@ -5,27 +5,24 @@ h1 {
 .photo-url {
   border-radius: 25px;
   width: 50vw;
-  height: 50vh;
+
+  max-width: 630px;
+  max-height: 420px;
   object-fit: cover;
 }
 
 .dlt-btn {
-  background-color: #596799;
+  background-color: white;
   border: none;
   font-weight: 700;
-  color: white;
+  color: #5f6368;
   border-radius: 15px;
 }
 
-.top-nav {
-  /* position: fixed; */
-}
-
-/* .home-title {
-  margin-top: 5%;
-} */
 .rout-link {
   margin: 2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #5f6368;
 }
 .store-container {
   width: 70vw;
@@ -58,5 +55,8 @@ a {
   }
   nav {
     flex-direction: column;
+  }
+  .rout-link {
+    margin: 0em;
   }
 }
