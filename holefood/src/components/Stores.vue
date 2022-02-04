@@ -1,7 +1,6 @@
 <template>
   <div class="store-container" @click="selectStore(store.id)">
     <div class="stores">
-    <h1>Donut Stores</h1>
 
     {{store.name}}
     <h2>{{store.name}}</h2>
@@ -21,7 +20,6 @@ export default {
     store: {}
   },
   methods: {
-    //delete store function
     selectStore(storeId) {
       this.$emit('selectStore', storeId)
     }
