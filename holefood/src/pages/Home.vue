@@ -2,13 +2,13 @@
   <div>
     <div >
       <Form :form="form"  :name="name" :location="location" 
-      :photo_url="photo_url" @handleFormChange="handleFormChange" 
-      @handleSubmit="handleSubmit" />
+      :photo_url="photo_url" @handleFormChange="handleFormChange" @createStore="createStore" @handleSubmit="handleSubmit"
+      />
     </div>
     <div  >
       <Stores v-for="store in stores" :key="store.id" 
       :store="store" @selectStore="selectStore" />
-      <button>Add Store</button>
+      
       
     </div>
   </div>
@@ -29,9 +29,11 @@ export default {
     form: true,
     name: '',
     location: '',
-    photo_url: ''
+    photo_url: '',
+    storeId: null
   }),
   mounted() {
+    this.storeId = parseInt(this.$route.params.store_id)
     this.getStores()
   },
   methods: {
@@ -40,19 +42,20 @@ export default {
     },
     
     handleSubmit() {
+
       alert('form submitted')
-      this.name=''
-      this.location=''
-      this.photo_url=''
+    
+      this.createStore()
     },
     async createStore() {
-      await axios.post('http://localhost:8000/shops/', {
+    
+      const res = await axios.post('http://localhost:8000/shops/', {
         name: this.name,
         location: this.location,
         photo_url: this.photo_url
       })
-      //this.newStore = res
-      //make sure to make the right axios call
+      console.log(res)
+      
     },
     async getStores(){
       const res = await axios.get('http://localhost:8000/shops/')

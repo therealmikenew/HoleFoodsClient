@@ -1,6 +1,8 @@
 <template>
-  <div @click="selectDonut(donut.id)">
-    <h1>Donuts</h1>
+  <div>
+    <h1>{{donut.name}}</h1>
+    <h1>{{donut.details}}</h1>
+    <h1>{{donut.image_url}}</h1>
     <button>Delete Donuts</button>
     <button>Update Donuts</button>
     <button>Add Donuts</button>
@@ -16,9 +18,6 @@ export default {
   },
   methods: {
     //add function to delete and update and add donuts
-    selectDonut(donutId) {
-      this.$emit('selectDonut', donutId)
-    }
   }
 }
 </script>

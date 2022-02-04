@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="crt-str" v-on:submit="handleSubmit">
+    <form class="crt-str" v-on:submit.prevent="handleSubmit">
       <input
         @input="handleFormChange($event)"
         placeholder="name"
@@ -16,7 +16,7 @@
         type="location"
       />
       <input
-        @input="handleFormChange"
+        @input="handleFormChange($event)"
         placeholder="photo_url"
         :value="photo_url"
         name="photo_url"
