@@ -1,14 +1,15 @@
 <template>
   <div>
-    <div v-if="!form">
-      <Stores v-for="store in stores" :key="store.id" 
-      :store="store" @selectStore="selectStore" />
-      <button>Add Store</button>
-    </div>
-    <div v-else >
+    <div >
       <Form :form="form"  :name="name" :location="location" 
       :photo_url="photo_url" @handleFormChange="handleFormChange" 
       @handleSubmit="handleSubmit" />
+    </div>
+    <div  >
+      <Stores v-for="store in stores" :key="store.id" 
+      :store="store" @selectStore="selectStore" />
+      <button>Add Store</button>
+      
     </div>
   </div>
 </template>

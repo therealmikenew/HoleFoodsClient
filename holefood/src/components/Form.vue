@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-on:submit="handleSubmit">
+    <form class="crt-str" v-on:submit="handleSubmit">
       <input
         @input="handleFormChange($event)"
         placeholder="name"
@@ -22,7 +22,7 @@
         name="photo_url"
         type="photo_url"
       />
-      <button :disabled="!name || !location || !photo_url">Create Store</button>
+      <button class="crt-btn" :disabled="!name || !location || !photo_url">Create Store</button>
     </form>
   </div>
 </template>
