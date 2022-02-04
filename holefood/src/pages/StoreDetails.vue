@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Store Details</h1>
+    
     <Donuts v-for="donut in donuts" :key="donut.id"
     :donut="donut" @selectDonut="selectDonut" />
   </div>
