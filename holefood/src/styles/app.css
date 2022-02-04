@@ -5,7 +5,6 @@ h1 {
 .photo-url {
   border-radius: 25px;
   width: 50vw;
-
   max-width: 630px;
   max-height: 420px;
   object-fit: cover;
@@ -17,6 +16,15 @@ h1 {
   font-weight: 700;
   color: #5f6368;
   border-radius: 15px;
+}
+
+.crt-str {
+  border-radius: 15px;
+}
+.crt-btn {
+  background-color: white;
+  color: #5f6368;
+  cursor: pointer;
 }
 
 .rout-link {
@@ -58,5 +66,17 @@ a {
   }
   .rout-link {
     margin: 0em;
+  }
+  input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .crt-btn {
+    padding: 6px 6px;
   }
 }
