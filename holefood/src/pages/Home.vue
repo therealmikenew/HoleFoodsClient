@@ -1,16 +1,21 @@
 <template>
   <div>
-    <div >
-      <Form :form="form"  :name="name" :location="location" 
-      :photo_url="photo_url" @handleFormChange="handleFormChange" @createStore="createStore" @handleSubmit="handleSubmit"
-      />
-    </div>
-    <div  >
+    <div>
+      <button class='main-btn' @click='togglePage'>{{buttonText}}</button>
+      <div v-if="form">
+       
       <Stores v-for="store in stores" :key="store.id" 
       :store="store" @selectStore="selectStore" />
-      
+      </div>
+      <div v-else>
+        <Form :form="form"  :name="name" :location="location" 
+      :photo_url="photo_url" @handleFormChange="handleFormChange" @createStore="createStore" @handleSubmit="handleSubmit"
+      />
+      </div>
+
       
     </div>
+    
   </div>
 </template>
 
@@ -30,7 +35,8 @@ export default {
     name: '',
     location: '',
     photo_url: '',
-    storeId: null
+    storeId: null,
+    buttonText: 'Add Store'
   }),
   mounted() {
     this.storeId = parseInt(this.$route.params.store_id)
@@ -39,6 +45,16 @@ export default {
   methods: {
     handleFormChange(name, value) {
       this[name] = value
+    },
+
+    togglePage() {
+      this.form = !this.form
+      if (this.form) {
+        this.buttonText = 'Add Store'
+      } else this.buttonText = 'View Stores'
+      
+      
+
     },
     
     handleSubmit() {

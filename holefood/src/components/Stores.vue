@@ -2,7 +2,7 @@
   <div class="store-container" @click="selectStore(store.id)">
     <div class="stores">
 
-    {{store.name}}
+   
     <h2>{{store.name}}</h2>
     <h3>{{store.location}}</h3>
     <img class="photo-url" :src="store.photo_url" />

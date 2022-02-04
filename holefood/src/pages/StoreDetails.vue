@@ -1,7 +1,7 @@
 <template>
   <div>
-    {{this.store.name}}
     
+    <h1>{{this.store.name}}</h1>
     <Donuts v-for="donut in donuts" :key="donut.id"
     :donut="donut" />
   </div>

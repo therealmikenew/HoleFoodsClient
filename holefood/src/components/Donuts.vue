@@ -5,9 +5,9 @@
    
 
      <img class="photo-url" :src="donut.image_url" />
-    <button v-on:click='deleteDonut'>Delete Donut</button>
-    <button>Update Donut</button>
-    <button>Add Donuts</button>
+    <button class='main-btn' v-on:click='deleteDonut'>Delete Donut</button>
+    <button class='main-btn'>Update Donut</button>
+    <button class='main-btn'>Add Donuts</button>
   </div>
 </template>
 
